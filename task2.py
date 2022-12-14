@@ -1,24 +1,24 @@
-# Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
-# Пример:
-# 6782 -> 23
-# 0,56 -> 11
+# Задайте список из n чисел последовательности (1 + 1/n)^n.
+# Вывести в консоль сам список и сумму его элементов.
 
 # Прошлое решение:
 
-# num = input('Введите число: ')
-# def sum_digit(num):
-#     num = num.split('.')
-#     sum = 0
-#     for i in range(len(num)):
-#         digit = int(num[i])
-#         while digit != 0:
-#             sum += digit % 10
-#             digit = digit // 10
-#     return sum
-# print(f'Сумма цифр в числе {num} равна {sum_digit(num)}')
+# num = int(input('Введите количество чисел: '))
+# my_list = []
+# for i in range(1, num + 1):
+#     my_list.append((1 + 1/i) ** i)
+# print(my_list)
+# sum_elem = 0
+# for j in range(len(my_list)):
+#     sum_elem += my_list[j]
+# print(f'Сумма элементов списка {sum_elem}')
 
 # Новое решение:
-num = input('Введите вещественное число: ')
 
-num = num.split('.')
+num = int(input('Введите количество чисел: '))
 
+my_list = [x for x in range(1, num + 1)]
+my_list = list(map(lambda x: (1 + 1/x)**x, my_list))
+print(my_list)
+sum_elem = sum(my_list)
+print(f'Сумма элементов списка равна {sum_elem}')
